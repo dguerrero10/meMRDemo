@@ -1,0 +1,5 @@
+.dashboard-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    column-gap: .5rem;
+}

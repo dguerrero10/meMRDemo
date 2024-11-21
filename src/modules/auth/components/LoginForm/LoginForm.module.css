@@ -1,0 +1,26 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  padding: 2rem;
+}
+
+.login-form__logo {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form__para {
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-right: .5rem;
+  font-size: 12px;
+  color: rgb(119, 119, 119);
+  cursor: pointer;
+}
+
+.login-form__para:hover {
+  text-decoration: underline;
+}

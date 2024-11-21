@@ -1,0 +1,16 @@
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #484747;
+    margin: .5rem 0;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12); /* Adjust line color as needed */
+    margin: 0 10px; /* Space around the "or" text */
+  }
+  
