@@ -11,8 +11,14 @@ import SettingsOverscanOutlinedIcon from "@mui/icons-material/SettingsOverscanOu
 import ChecklistRtlOutlinedIcon from "@mui/icons-material/ChecklistRtlOutlined";
 import HistoryEduOutlinedIcon from "@mui/icons-material/HistoryEduOutlined";
 import CreateNewFolderOutlinedIcon from "@mui/icons-material/CreateNewFolderOutlined";
+import HomeIcon from "@mui/icons-material/HomeOutlined";
 
 export const MeButtons = [
+  {
+    to: "/dashboard/home",
+    title: "Home",
+    icon: <HomeIcon />,
+  },
   {
     to: "/dashboard/history",
     title: "History",
@@ -70,11 +76,6 @@ export const MedicalRecordButtons = [
     to: "/dashboard/provider-facility-notes",
     title: "Provider/Facility Notes",
     icon: <HistoryEduOutlinedIcon />,
-  },
-  {
-    to: "/dashboard/providers",
-    title: "Providers",
-    icon: <HealthAndSafetyOutlinedIcon />,
   },
   {
     to: "/dashboard/procedure-notes",

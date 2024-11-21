@@ -13,10 +13,33 @@
 }
 
 .auth-layout-grid__left-content {
+  position: relative; 
   background-image: url("../../../../assets/images/auth-background-two.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: .3em;
+  border-radius: 0.3em;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.auth-layout-grid__overlay-text {
+  width: 75%;
+  position: absolute;
+  color: #fff;
+  text-align: right;
+  z-index: 1; 
+  padding: 1rem;
+  border: 1px solid #fff;
+}
+
+.auth-layout-grid__overlay-text h1 {
+  font-size: 64px;
+}
+
+.auth-layout-grid__overlay-text p {
+  font-size: 16px;
+  font-weight: 600;
 }

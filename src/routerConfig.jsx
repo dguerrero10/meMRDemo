@@ -8,6 +8,7 @@ import Medications from "./modules/dashboard/components/Medications/Medications"
 import Providers from "./modules/dashboard/components/Providers/Providers";
 import Documents from "./modules/dashboard/components/Documents/Documents";
 import AuthPage from "./modules/auth/pages/AuthPage/AuthPage";
+import Home from "./modules/dashboard/components/Home/Home";
 
 
 export const router = createBrowserRouter([
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
         path: "",
         element: <DashboardPage />,
         children: [
+          {
+            path: "home",
+            element: <Home />
+          },
           {
             path: "history", 
             element: <History />,
