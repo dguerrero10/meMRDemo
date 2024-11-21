@@ -13,6 +13,8 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Zoom from '@mui/material/Zoom';
 
+import AvatarImg from '../../../../assets/images/random-lady.jpg';
+
 import classes from "./DashboardNav.module.css";
 import { useState } from "react";
 
@@ -175,7 +177,7 @@ export default function DashboardNav() {
           </IconButton>
         </Tooltip>
 
-        <Avatar sx={{ width: 40, height: 40 }}>DG</Avatar>
+        <Avatar src={AvatarImg} sx={{ width: 40, height: 40 }} />
       </div>
     </nav>
   );

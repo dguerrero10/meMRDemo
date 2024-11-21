@@ -9,9 +9,15 @@ import Providers from "./modules/dashboard/components/Providers/Providers";
 import Documents from "./modules/dashboard/components/Documents/Documents";
 import AuthPage from "./modules/auth/pages/AuthPage/AuthPage";
 import Home from "./modules/dashboard/components/Home/Home";
+import Vitals from "./modules/dashboard/components/Vitals/Vitals";
+import NotFoundPage from "./shared/NotFoundPage/NotFoundPage";
 
 
 export const router = createBrowserRouter([
+  {
+    path: "/auth",
+    element: <AuthPage />
+  },
   {
     path: "/dashboard",
     element: <DashboardRootPage />,
@@ -48,12 +54,16 @@ export const router = createBrowserRouter([
             path: "documents", 
             element: <Documents />,
           },
+          {
+            path: "vitals", 
+            element: <Vitals />,
+          },
         ],
       },
     ],
   },
   {
-    path: "/auth",
-    element: <AuthPage />
+    path: "*",
+    element: <NotFoundPage />
   }
 ]);

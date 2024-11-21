@@ -1,11 +1,94 @@
-import { Button, Divider } from "@mui/material";
-
+import { Button, Divider, Snackbar } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import classes from "./LoginForm.module.css";
 import InputField from "../../../../shared/ui/InputField/InputField";
+import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useInput } from "../../../../utils/hooks/useInput";
+import {
+  isEmail,
+  isNotEmpty,
+} from "../../../../utils/validation/validationAuth";
 
 export default function LoginForm({ setOnLoginPage }) {
+  const navigate = useNavigate();
+  const [snackbarIsOpen, setSnackbarIsOpen] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const {
+    value: emailValue,
+    handleInputChange: handleEmailChange,
+    handleInputBlur: handleEmailBlur,
+    hasError: emailHasError,
+    manualErrorMessage: emailManualError,
+    setManualError: setEmailManualError,
+  } = useInput("", (value) => isEmail(value) && isNotEmpty(value));
+
+  const {
+    value: passwordValue,
+    handleInputChange: handlePasswordChange,
+    handleInputBlur: handlePasswordBlur,
+    hasError: passwordHasError,
+    manualErrorMessage: passwordManualError,
+    setManualError: setPasswordManualError,
+  } = useInput("", (value) => isNotEmpty(value));
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    setEmailManualError("");
+    setPasswordManualError("");
+
+    let formIsInvalid = false;
+
+    if (!isNotEmpty(emailValue) || emailHasError) {
+      setEmailManualError("Please enter a valid email.");
+      formIsInvalid = true;
+    }
+
+    if (!isNotEmpty(passwordValue) || passwordHasError) {
+      setPasswordManualError("Password is required.");
+      formIsInvalid = true;
+    }
+
+    setSnackbarIsOpen(true);
+
+    if (formIsInvalid) return;
+
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      navigate("/dashboard/home");
+      setIsSubmitting(false);
+    }, 500);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    navigate("/dashboard/home");
+    setOpen(false);
+  };
+
+  const action = (
+    <>
+      <Button
+        sx={{marginLeft: "-1rem"}}
+        color="secondary"
+        size="small"
+        endIcon={<ArrowForwardOutlinedIcon />}
+        onClick={handleClose}
+      >
+        Just take me to Dashboard
+      </Button>
+    </>
+  );
+
   return (
-    <form className={classes["login-form"]}>
+    <form className={classes["login-form"]} onSubmit={handleLogin}>
       <div className={classes["login-form__logo"]}>
         <svg
           width="100"
@@ -37,28 +120,67 @@ export default function LoginForm({ setOnLoginPage }) {
       </div>
       <h1>Login</h1>
 
-      <InputField label="Email" type="text" />
-      <InputField label="Password" type="password" />
+      <InputField
+        label="Email"
+        id="email"
+        name="email"
+        type="text"
+        onBlur={handleEmailBlur}
+        onChange={handleEmailChange}
+        value={emailValue}
+        error={emailHasError && "Please enter a valid email."}
+        manuallySetError={emailManualError}
+      />
 
-      <p className={classes["login-form__para"]}>Forgot password?</p>
+      <InputField
+        label="Password"
+        id="password"
+        name="password"
+        type="password"
+        onBlur={handlePasswordBlur}
+        onChange={handlePasswordChange}
+        value={passwordValue}
+        error={passwordHasError && "Please provide a password."}
+        manuallySetError={passwordManualError}
+      />
 
-      <Button
-        variant="contained"
-        sx={{ marginTop: "1rem" }}
-        className="width-100"
-      >
-        Login
-      </Button>
-      <Divider sx={{ margin: "1rem 0" }} />
-      <Button
-        color="tertiary"
-        variant="outlined"
-        className="width-100"
-        type="button"
-        onClick={() => setOnLoginPage(false)}
-      >
-        Sign up
-      </Button>
+      {!isSubmitting && (
+        <>
+          <p className={classes["login-form__para"]}>Forgot password?</p>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ marginTop: "1rem" }}
+            className="width-100"
+          >
+            Login
+          </Button>
+          <Divider sx={{ margin: "1rem 0" }} />
+          <Button
+            startIcon={<PersonAddAltOutlinedIcon />}
+            color="tertiary"
+            variant="outlined"
+            className="width-100"
+            type="button"
+            onClick={() => setOnLoginPage(false)}
+          >
+            Sign up
+          </Button>
+        </>
+      )}
+
+      <Snackbar
+        open={snackbarIsOpen}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        message="For this demo, any email & password is fine."
+        action={action}
+      />
+
+      {isSubmitting && (
+        <CircularProgress
+          sx={{ display: "flex", alignSelf: "center", marginTop: "1rem" }}
+        />
+      )}
     </form>
   );
 }

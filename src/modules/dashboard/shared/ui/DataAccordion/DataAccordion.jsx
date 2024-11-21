@@ -7,7 +7,7 @@ import {
 
 import classes from './DataAccordion.module.css';
 
-export default function DataAccordion({ data }) {
+export default function DataAccordion({ children, data }) {
   return (
     <div className={classes["data-accordion"]}>
       {data.map(({title, details}) => (
@@ -16,7 +16,7 @@ export default function DataAccordion({ data }) {
             <Typography>{title}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{details}</Typography>
+            {details}
           </AccordionDetails>
         </Accordion>
       ))}

@@ -20,6 +20,11 @@ export const MeButtons = [
     icon: <HomeIcon />,
   },
   {
+    to: "/dashboard/vitals",
+    title: "Vitals",
+    icon: <MonitorHeartOutlinedIcon />,
+  },
+  {
     to: "/dashboard/history",
     title: "History",
     icon: <MedicalInformationOutlinedIcon />,
@@ -48,11 +53,6 @@ export const MeButtons = [
     to: "/dashboard/drug-allergies",
     title: "Drug Allergies",
     icon: <MasksOutlinedIcon />,
-  },
-  {
-    to: "/dashboard/vitals",
-    title: "Vitals",
-    icon: <MonitorHeartOutlinedIcon />,
   },
 ];
 
@@ -88,3 +88,4 @@ export const MedicalRecordButtons = [
     icon: <CreateNewFolderOutlinedIcon />,
   },
 ];
+

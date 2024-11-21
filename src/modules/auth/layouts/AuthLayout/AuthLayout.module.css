@@ -13,7 +13,7 @@
 }
 
 .auth-layout-grid__left-content {
-  position: relative; 
+  position: relative;
   background-image: url("../../../../assets/images/auth-background-two.jpg");
   background-size: cover;
   background-position: center;
@@ -22,7 +22,7 @@
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .auth-layout-grid__overlay-text {
@@ -30,7 +30,7 @@
   position: absolute;
   color: #fff;
   text-align: right;
-  z-index: 1; 
+  z-index: 1;
   padding: 1rem;
   border: 1px solid #fff;
 }
@@ -42,4 +42,24 @@
 .auth-layout-grid__overlay-text p {
   font-size: 16px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 1200px) {
+  .auth-layout-grid__overlay-text h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+  .auth-layout-grid__overlay-text p {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .auth-layout-grid__left-content {
+    display: none;
+  }
+
+  .auth-layout-grid {
+    grid-template-columns: 1fr;
+  }
 }

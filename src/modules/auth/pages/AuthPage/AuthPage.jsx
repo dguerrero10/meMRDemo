@@ -15,6 +15,8 @@ export default function AuthPage() {
     } else {
       document.body.classList.remove("no-overflow");
     }
+
+    return () => document.body.classList.remove("no-overflow");
   }, [location])
 
   return (

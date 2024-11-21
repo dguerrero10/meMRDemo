@@ -46,6 +46,7 @@ export default function LoginForm({ setOnLoginPage }) {
       <h1>Sign up</h1>
 
       <InputField label="Email" type="text" />
+      <InputField label="Full name" type="text" />
       <InputField label="Password" type="password" />
       <InputField label="Confirm Password" type="password" />
 

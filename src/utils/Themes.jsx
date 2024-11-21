@@ -26,6 +26,7 @@ export const customButtonTheme = createTheme({
           textTransform: "none",
           fontWeight: "500",
           boxShadow: "none",
+          height: "36px",
         },
         contained: {
           backgroundColor: "#8ac5c2",
