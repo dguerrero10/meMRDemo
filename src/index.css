@@ -12,6 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.no-overflow {
+  overflow: hidden;
+}
+
 .no-margin {
   margin: 0;
 }
@@ -24,3 +28,6 @@
   width: 100%;
 }
 
+a {
+  color: rgb(28, 90, 235);
+}

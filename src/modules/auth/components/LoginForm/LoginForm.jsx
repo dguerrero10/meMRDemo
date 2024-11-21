@@ -3,7 +3,7 @@ import { Button, Divider } from "@mui/material";
 import classes from "./LoginForm.module.css";
 import InputField from "../../../../shared/ui/InputField/InputField";
 
-export default function LoginForm() {
+export default function LoginForm({ setOnLoginPage }) {
   return (
     <form className={classes["login-form"]}>
       <div className={classes["login-form__logo"]}>
@@ -54,8 +54,10 @@ export default function LoginForm() {
         color="tertiary"
         variant="outlined"
         className="width-100"
+        type="button"
+        onClick={() => setOnLoginPage(false)}
       >
-        Create an account
+        Sign up
       </Button>
     </form>
   );
