@@ -54,7 +54,7 @@ function App() {
           </Button>
         </Box>
       </Modal>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

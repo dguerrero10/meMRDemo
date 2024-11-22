@@ -10,19 +10,19 @@ export default function AuthPage() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/auth') {
+    if (location.pathname === "/auth") {
       document.body.classList.add("no-overflow");
     } else {
       document.body.classList.remove("no-overflow");
     }
 
     return () => document.body.classList.remove("no-overflow");
-  }, [location])
+  }, [location]);
 
   return (
     <AuthLayout>
-      {onLoginPage && <LoginForm setOnLoginPage={setOnLoginPage} /> }
-      {!onLoginPage && <SignupForm setOnLoginPage={setOnLoginPage} /> }
+      {onLoginPage && <LoginForm setOnLoginPage={setOnLoginPage} />}
+      {!onLoginPage && <SignupForm setOnLoginPage={setOnLoginPage} />}
     </AuthLayout>
   );
 }

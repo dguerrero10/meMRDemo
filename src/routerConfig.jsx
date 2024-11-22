@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { lazyLoadingScreen } from "./shared/ui/LazyLoadingScreen";
 
+import AuthPage from "./modules/auth/pages/AuthPage/AuthPage";
 const DashboardRootPage = lazy(() => import("./modules/dashboard/pages/DashboardRootPage/DashboardRootPage"));
 const DashboardPage = lazy(() => import("./modules/dashboard/pages/DashboardPage/DashboardPage"));
 const History = lazy(() => import("./modules/dashboard/components/History/History"));
@@ -11,7 +12,6 @@ const DrugAllergies = lazy(() => import("./modules/dashboard/components/DrugAlle
 const Medications = lazy(() => import("./modules/dashboard/components/Medications/Medications"));
 const Providers = lazy(() => import("./modules/dashboard/components/Providers/Providers"));
 const Documents = lazy(() => import("./modules/dashboard/components/Documents/Documents"));
-const AuthPage = lazy(() => import("./modules/auth/pages/AuthPage/AuthPage"));
 const Home = lazy(() => import("./modules/dashboard/components/Home/Home"));
 const Vitals = lazy(() => import("./modules/dashboard/components/Vitals/Vitals"));
 const NotFoundPage = lazy(() => import("./shared/NotFoundPage/NotFoundPage"));

@@ -5,7 +5,7 @@ import InputField from "../../../../shared/ui/InputField/InputField";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { startTransition, useState } from "react";
 import { useInput } from "../../../../utils/hooks/useInput";
 import {
   isEmail,
@@ -13,6 +13,8 @@ import {
 } from "../../../../utils/validation/validationAuth";
 
 export default function LoginForm({ setOnLoginPage }) {
+  // Can split this component up.
+  
   const navigate = useNavigate();
   const [snackbarIsOpen, setSnackbarIsOpen] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -69,8 +71,9 @@ export default function LoginForm({ setOnLoginPage }) {
     if (reason === "clickaway") {
       return;
     }
-    navigate("/dashboard/home");
-    setSnackbarIsOpen(false);
+    startTransition(() => {
+      navigate("/dashboard/home");
+    });
   };
 
   const action = (
