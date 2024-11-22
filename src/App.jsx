@@ -5,8 +5,6 @@ import { ThemeProvider } from "@emotion/react";
 import { customButtonTheme } from "./utils/Themes";
 import { Box, Modal, Button } from "@mui/material";
 
-import "./App.css";
-
 const style = {
   position: "absolute",
   top: "50%",
