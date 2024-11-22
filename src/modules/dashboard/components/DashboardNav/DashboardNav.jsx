@@ -1,4 +1,20 @@
-import { Avatar, Button, Divider, IconButton, Tooltip } from "@mui/material";
+import { useState } from "react";
+
+import {
+  LiveHelpOutlined,
+  NotificationImportantOutlined,
+  QuestionAnswerOutlined,
+} from "@mui/icons-material";
+
+import {
+  Avatar,
+  Badge,
+  Button,
+  Divider,
+  IconButton,
+  styled,
+  Tooltip,
+} from "@mui/material";
 
 import ShareIcon from "@mui/icons-material/Share";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
@@ -8,25 +24,36 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
-import Zoom from '@mui/material/Zoom';
+import Zoom from "@mui/material/Zoom";
 
-import AvatarImg from '../../../../assets/images/random-lady.jpg';
+import AvatarImg from "../../../../assets/images/random-lady.jpg";
 
 import classes from "./DashboardNav.module.css";
-import { useState } from "react";
 
 export default function DashboardNav() {
+  // Some of this file can be split up into separate components.
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 5px",
+      color: "#fff",
+      backgroundColor: "#F44336",
+    },
+  }));
 
   return (
     <nav className={classes["dashboard-nav"]}>
@@ -75,22 +102,26 @@ export default function DashboardNav() {
           Insurance
         </Button>
         <Divider orientation="vertical" flexItem sx={{ margin: "0 16px" }} />
-        <Tooltip title="Settings" arrow slots={{
-          transition: Zoom,
-        }}>
-        <IconButton
-          aria-label="settings"
-          onClick={handleClick}
-          size="small"
-          sx={{ ml: 2 }}
-          aria-controls={open ? "account-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
+        <Tooltip
+          title="Settings"
+          arrow
+          slots={{
+            transition: Zoom,
+          }}
         >
-          <SettingsIcon />
-        </IconButton>
+          <IconButton
+            aria-label="settings"
+            onClick={handleClick}
+            size="small"
+            sx={{ ml: 2 }}
+            aria-controls={open ? "account-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+          >
+            <SettingsIcon />
+          </IconButton>
         </Tooltip>
-    
+
         <Menu
           anchorEl={anchorEl}
           id="account-menu"
@@ -134,50 +165,54 @@ export default function DashboardNav() {
           <Divider />
           <MenuItem onClick={handleClose}>
             <ListItemIcon>
-              <PersonAdd fontSize="small" />
+              <NotificationImportantOutlined fontSize="small" />
             </ListItemIcon>
             Notification Settings
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <ListItemIcon>
-              <PersonAdd fontSize="small" />
-            </ListItemIcon>
-            Notification Settings
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <Settings fontSize="small" />
-            </ListItemIcon>
-            Legal
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <Logout fontSize="small" />
+              <QuestionAnswerOutlined fontSize="small" />
             </ListItemIcon>
             Contact Us
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <ListItemIcon>
-              <Logout fontSize="small" />
+              <LiveHelpOutlined fontSize="small" />
             </ListItemIcon>
             FAQ
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <Logout fontSize="small" />
-            </ListItemIcon>
-            Logout
-          </MenuItem>
         </Menu>
-        <Tooltip title="Notifications" arrow slots={{
-          transition: Zoom,
-        }}>
+        <Tooltip
+          title="Notifications"
+          arrow
+          slots={{
+            transition: Zoom,
+          }}
+        >
           <IconButton aria-label="notifications">
-            <NotificationsIcon />
+            <StyledBadge badgeContent={4} color="secondary">
+              <NotificationsIcon />
+            </StyledBadge>
           </IconButton>
         </Tooltip>
 
-        <Avatar src={AvatarImg} sx={{ width: 40, height: 40 }} />
+        <Tooltip
+          title="Change avatar"
+          arrow
+          slots={{
+            transition: Zoom,
+          }}
+        >
+          <Avatar
+            src={AvatarImg}
+            sx={{
+              width: 40,
+              height: 40,
+              marginLeft: ".5rem",
+              cursor: "pointer",
+            }}
+          />
+        </Tooltip>
       </div>
     </nav>
   );

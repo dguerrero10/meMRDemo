@@ -70,7 +70,7 @@ export default function LoginForm({ setOnLoginPage }) {
       return;
     }
     navigate("/dashboard/home");
-    setOpen(false);
+    setSnackbarIsOpen(false);
   };
 
   const action = (

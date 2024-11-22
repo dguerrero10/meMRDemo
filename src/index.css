@@ -31,3 +31,12 @@
 a {
   color: rgb(28, 90, 235);
 }
+
+.lazy-loading-screen {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

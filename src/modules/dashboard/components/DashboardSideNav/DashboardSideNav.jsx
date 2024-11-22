@@ -6,7 +6,7 @@ import classes from "./DashboardSideNav.module.css";
 import {
   MeButtons,
   MedicalRecordButtons,
-} from "../../static/DashboardSideNavButtons";
+} from "../../shared/DashboardSideNavButtons";
 import { NavLink } from "react-router-dom";
 import { LogoutOutlined } from "@mui/icons-material";
 
