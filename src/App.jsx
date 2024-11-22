@@ -26,6 +26,7 @@ function App() {
   const [open, setOpen] = useState(
     hasDisplayedDisclaimerMessage ? false : true
   );
+  
   const handleClose = () => setOpen(false);
 
   return (
@@ -34,8 +35,10 @@ function App() {
         <Box sx={style}>
           <h3>Disclaimer:</h3>
           <p>
-            This purpose of building this was to display some of the skills I
-            have to offer. That said, the dashboard is primarily non-functional
+            This website is <span style={{fontWeight: "bold"}}>NOT AFFILIATED </span>
+            with memrHealth.
+            I built this dummy application to demonstrate some of the skills I have to offer.
+            That said, the dashboard is primarily non-functional
             and due to time constraints, is not mobile friendly -- it's just a
             vision I had for what I would do based on your current design. There
             is no intent to misuse or infringe upon any intellectual property or

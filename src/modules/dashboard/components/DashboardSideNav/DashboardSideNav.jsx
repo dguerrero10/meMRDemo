@@ -35,27 +35,22 @@ export default function DashboardSideNav() {
           ))}
         </ul>
 
-        <p>Medical Records</p>
+        <p>Medical Records (Do not work)</p>
         <Divider />
         <ul className={classes["dashboard-sidenav__list"]}>
-          {MedicalRecordButtons.map(({ to, title, icon }) => (
-            <NavLink key={title} to={to}>
-              {({ isActive }) => (
-                <Button
-                  sx={{
-                    gap: 2,
-                    backgroundColor: isActive ? "#f1f1f1" : "inherit",
-                  }}
-                  size="small"
-                  startIcon={icon}
-                >
-                  {title}
-                </Button>
-              )}
-            </NavLink>
+          {MedicalRecordButtons.map(({ title, icon }) => (
+            <Button
+              sx={{
+                gap: 2,
+              }}
+              size="small"
+              startIcon={icon}
+            >
+              {title}
+            </Button>
           ))}
         </ul>
-        <Divider sx={{marginBottom: "1.25rem"}} />
+        <Divider sx={{ marginBottom: "1.25rem" }} />
         <NavLink to={"/auth"}>
           <Button
             sx={{

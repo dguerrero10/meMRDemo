@@ -58,32 +58,26 @@ export const MeButtons = [
 
 export const MedicalRecordButtons = [
   {
-    to: "/dashboard/lab-tests",
     title: "Lab Tests",
     icon: <BiotechOutlinedIcon />,
   },
   {
-    to: "/dashboard/trended-bloodwork",
     title: "Trended Bloodwork",
     icon: <BloodtypeOutlinedIcon />,
   },
   {
-    to: "/dashboard/imaging",
     title: "Imaging",
     icon: <SettingsOverscanOutlinedIcon />,
   },
   {
-    to: "/dashboard/provider-facility-notes",
     title: "Provider/Facility Notes",
     icon: <HistoryEduOutlinedIcon />,
   },
   {
-    to: "/dashboard/procedure-notes",
     title: "Procedure Notes",
     icon: <ChecklistRtlOutlinedIcon />,
   },
   {
-    to: "/dashboard/hei-data",
     title: "HEI Data",
     icon: <CreateNewFolderOutlinedIcon />,
   },
